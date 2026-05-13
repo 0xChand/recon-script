@@ -72,4 +72,52 @@ else
 fi
 
 echo "" | tee -a "$REPORT"
+
+# 4. SSL Certificate Info
+log "${YELLOW}${BOLD}[ 4. SSL CERTIFICATE ]${NC}"
+if command -v openssl &>/dev/null; then
+  echo "" | openssl s_client -servername "$TARGET" -connect "$TARGET:443" 2>/dev/null \
+    | openssl x509 -noout -text 2>/dev/null \
+    | grep -E "Subject:|Issuer:|Not Before|Not After" \
+    | while read -r line; do log "  ${GREEN}[+]${NC} $line"; done
+  if [ $? -ne 0 ]; then
+    log "  ${RED}[-]${NC} No SSL certificate or not reachable on 443"
+  fi
+else
+  log "  ${RED}[!] openssl not installed${NC}"
+fi
+
+echo "" | tee -a "$REPORT"
+
+# 5. HTTP Headers
+log "${YELLOW}${BOLD}[ 5. HTTP HEADERS ]${NC}"
+if command -v curl &>/dev/null; then
+  curl -sI "http://$TARGET" 2>/dev/null | head -10 | while read -r line; do
+    if [ -n "$line" ]; then
+      log "  ${GREEN}[+]${NC} $line"
+    fi
+  done
+  if [ $? -ne 0 ]; then
+    log "  ${RED}[-]${NC} HTTP not reachable"
+  fi
+else
+  log "  ${RED}[!] curl not installed${NC}"
+fi
+
+echo "" | tee -a "$REPORT"
+
+# 6. Reverse DNS Lookup
+log "${YELLOW}${BOLD}[ 6. REVERSE DNS LOOKUP ]${NC}"
+if command -v dig &>/dev/null; then
+  RDNS=$(dig +short -x "$TARGET" 2>/dev/null)
+  if [ -n "$RDNS" ]; then
+    log "  ${GREEN}[+]${NC} $RDNS"
+  else
+    log "  ${RED}[-]${NC} No reverse DNS record"
+  fi
+else
+  log "  ${RED}[!] dig not installed${NC}"
+fi
+
+echo "" | tee -a "$REPORT"
 log "${GREEN}${BOLD}[✓] Done. Report saved to: $REPORT${NC}"

@@ -1,0 +1,35 @@
+[1;33m[1m[ 1. WHOIS LOOKUP ][0m
+  [0;32m[+][0m Creation Date: 1997-09-15T04:00:00Z
+  [0;32m[+][0m Registry Expiry Date: 2028-09-14T04:00:00Z
+  [0;32m[+][0m Registrar: MarkMonitor Inc.
+  [0;32m[+][0m Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+  [0;32m[+][0m Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+  [0;32m[+][0m Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+  [0;32m[+][0m Domain Status: serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited
+  [0;32m[+][0m Domain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited
+  [0;32m[+][0m Domain Status: serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited
+  [0;32m[+][0m Name Server: NS1.GOOGLE.COM
+
+[1;33m[1m[ 2. DNS ENUMERATION ][0m
+  [0;32m[+][0m A -> 142.250.200.174
+  [0;32m[+][0m MX -> 10 smtp.google.com.
+  [0;32m[+][0m NS -> ns4.google.com.
+ns1.google.com.
+ns2.google.com.
+ns3.google.com.
+  [0;32m[+][0m TXT -> "facebook-domain-verification=22rm551cu4k0ab0bxsw536tlds4h95"
+"onetrust-domain-verification=0d477fe608074e6f9c12bca7826035cc"
+"google-site-verification=4ibFUgB-wXLQ_S7vsXVomSTVamuOXBiVAzpR5IZ87D0"
+"cisco-ci-domain-verification=47c38bc8c4b74b7233e9053220c1bbe76bcc1cd33c7acf7acd36cd6a5332004b"
+"apple-domain-verification=30afIBcvSuDV2PLX"
+"onetrust-domain-verification=6d685f1d41a94696ad7ef771f68993e0"
+"google-site-verification=wD8N7i1JTNTkezJ49swvWW48f8_9xveREV4oB-0Hf5o"
+"globalsign-smime-dv=CDYX+XFHUw2wml6/Gb8+59BsH31KzUr6c1l2BPvqKX8="
+"docusign=1b0a6754-49b1-4db5-8540-d2c12664b289"
+"docusign=05958488-4752-4ef2-95eb-aa7ba8a3bd0e"
+"google-site-verification=TV9-DBe4R80X4v0M4U_bd_J9cpOJM0nikft0jAgjmsQ"
+"v=spf1 include:_spf.google.com ~all"
+"MS=E4A68B9AB2BB9670BCE15412F62916164C0B20BB"
+
+[1;33m[1m[ 3. PORT SCAN (NMAP) ][0m
+  [0;36m[*][0m Scanning top 100 ports on google.com...
